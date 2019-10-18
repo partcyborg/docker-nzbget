@@ -4,6 +4,8 @@ FROM lsiobase/alpine:3.10 as buildstage
 # set NZBGET version
 ARG NZBGET_RELEASE
 
+ARG SKIP_PERM_FIX
+
 RUN \
  echo "**** install build packages ****" && \
  apk add \

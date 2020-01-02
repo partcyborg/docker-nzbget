@@ -1,5 +1,5 @@
 # Buildstage
-FROM lsiobase/alpine:3.10 as buildstage
+FROM lsiobase/alpine:3.11 as buildstage
 
 # set NZBGET version
 ARG NZBGET_RELEASE
@@ -56,7 +56,7 @@ RUN \
 	"https://curl.haxx.se/ca/cacert.pem"
 
 # Runtime Stage
-FROM lsiobase/alpine:3.10
+FROM lsiobase/alpine:3.11
 
 # set version label
 ARG BUILD_DATE

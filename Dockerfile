@@ -32,7 +32,7 @@ RUN \
  git cherry-pick -n fa57474d && \
  ./configure \
 	bindir='${exec_prefix}' && \
- make -j8 && \
+ make -j$(nproc) && \
  make prefix=/app/nzbget install && \
  sed -i \
 	-e "s#^MainDir=.*#MainDir=/downloads#g" \

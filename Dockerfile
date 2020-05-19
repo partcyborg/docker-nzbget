@@ -6,6 +6,8 @@ ARG NZBGET_RELEASE
 
 ARG SKIP_PERM_FIX
 
+ARG IO_CLASS
+
 RUN \
  echo "**** install build packages ****" && \
  apk add \
@@ -30,7 +32,7 @@ RUN \
  git cherry-pick -n fa57474d && \
  ./configure \
 	bindir='${exec_prefix}' && \
- make && \
+ make -j8 && \
  make prefix=/app/nzbget install && \
  sed -i \
 	-e "s#^MainDir=.*#MainDir=/downloads#g" \
